@@ -13,7 +13,7 @@ def print_hi(name):
     print("TEST")
     print("TEST")
     print("TEST")
-    print("test")
+    print("Test")
 
 
 # Press the green button in the gutter to run the script.
