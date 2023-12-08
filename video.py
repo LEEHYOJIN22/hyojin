@@ -10,7 +10,7 @@ from queue import Queue
 class Streamer:
 
     def __init__(self):
-
+#초기선언
         if cv2.ocl.haveOpenCL():
             cv2.ocl.setUseOpenCL(True)
         print('[wandlab] ', 'OpenCL : ', cv2.ocl.haveOpenCL())
@@ -27,7 +27,7 @@ class Streamer:
         self.started = False
 
     def run(self, src=0):
-
+#class 실행
         self.stop()
 
         if platform.system() == 'Windows':
@@ -47,7 +47,7 @@ class Streamer:
         self.started = True
 
     def stop(self):
-
+#정지
         self.started = False
 
         if self.capture is not None:
@@ -55,7 +55,7 @@ class Streamer:
             self.clear()
 
     def update(self):
-
+#영상처리
         while True:
 
             if self.started:
@@ -65,12 +65,12 @@ class Streamer:
                     self.Q.put(frame)
 
     def clear(self):
-
+#영상데이터삭제
         with self.Q.mutex:
             self.Q.queue.clear()
 
     def read(self):
-
+#영상 읽기
         return self.Q.get()
 
     def blank(self):
